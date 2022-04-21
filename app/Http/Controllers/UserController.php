@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Models\Post;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -46,8 +45,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $posts = Post::FindOrFail($id);
-        return view('view_posts.show', compact('posts'));
+        //
     }
 
     /**

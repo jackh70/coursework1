@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Post;
 
-class ProfileController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('view_posts.index', compact('posts'));
     }
 
     /**

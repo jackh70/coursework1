@@ -30,7 +30,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function user_roles(){
+    public function user_role(){
         return $this->belongsTo(User_role::class);
         }
 }
