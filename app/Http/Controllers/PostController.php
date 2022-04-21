@@ -38,20 +38,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|max:25',
-            'content' => 'required|max:255',
-            ]);
-            //create new post and save
-            $p = new Post;
-            $p->title = $validatedData['title'];
-            $p->content = $validatedData['content'];
-            //Auth id stored from session use that
-            $p->user_id = Auth::id();
-            $p->save();
 
-            session()->flash('message','Post was created');
-            return redirect()->route('dashboard');
+            if ($request->file('file')!=null){
+                $validatedData = $request->validate([
+                    'title' => 'required|max:25',
+                    'content' => 'required|max:255',
+                    'path' => 'mimes:jpeg,bmp,png'
+
+                ]);
+                
+                $p = new Post;
+                $p->title = $validatedData['title'];
+                $p->content = $validatedData['content'];
+                $p->path = $validatedData['path']->hashName();
+                //Auth id stored from session use that
+                $p->user_id = Auth::id();
+                $p->save();
+
+            }
+            else{
+                $validatedData = $request->validate([
+                'title' => 'required|max:25',
+                'content' => 'required|max:255',
+                ]);
+
+                $p = new Post;
+                $p->title = $validatedData['title'];
+                $p->content = $validatedData['content'];
+                //Auth id stored from session use that
+                $p->user_id = Auth::id();
+                $p->save();
+
+                session()->flash('message','Post was created');
+                return redirect()->route('dashboard');
+            }
     }
 
     /**

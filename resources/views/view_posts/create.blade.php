@@ -68,7 +68,7 @@
             value="{{old('title')}}"></p>
         <p>Post Body: <input type="text" name="content"
             value="{{old('content')}}"></p>
-        <input type="file" value="image">
+        <input type="file" value="file">
         <input type="submit" value="Submit">
             </div>
         </form>
