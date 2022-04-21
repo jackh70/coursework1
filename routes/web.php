@@ -26,9 +26,17 @@ Route::get('/dashboard', function () {
 
 Route::view('details', 'details')->name('details');
 Route::view('view_posts', 'view_posts')->name('view_posts');
+Route::view('create_post', 'create_post')->name('create_post');
 
 Route::get('/view_posts', [PostController::class, 'index'])
 ->name('view_posts');
+
+Route::get('/create_post', [PostController::class, 'create'])
+->name('view_posts.create');
+
+Route::post('/create_post', [PostController::class, 'store'])
+->name('view_posts.store');
+
 Route::get('/view_posts/{id}', [PostController::class, 'show']);
 
 

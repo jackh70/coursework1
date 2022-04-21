@@ -18,8 +18,8 @@ class CommentFactory extends Factory
     {
         return [
             'content' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
-            'user_id' => 1,
-            'post_id' => 1,
+            'user_id' => 'App\Models\User'::inRandomOrder()->first()->id,
+            'post_id' => 'App\Models\Post'::inRandomOrder()->first()->id,
         ];
     }
 }

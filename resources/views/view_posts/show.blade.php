@@ -7,10 +7,26 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <b class="post_title">Post</b>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <li>{{$posts->user['name'] }}</li>
-                    <li>{{$posts->content}}</li>   
+                    <li>{{$posts->content}}</li>  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <b class="comments_title">Comments</b>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                @foreach($posts->comments as $comm)
+                    <b>{{$comm->user['name']}}</b>
+                    <a>: {{$comm->content}}</a>
+                    <br>
+                @endforeach
                 </div>
             </div>
         </div>
