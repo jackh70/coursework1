@@ -9,4 +9,10 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = ["title", "path",
+    ]
+
+    public function post(){
+        return $this->hasOne(Post::class);
+    }
 }

@@ -19,9 +19,13 @@ return new class extends Migration
             $table->String('content');
             $table->string('image_link');
             $table->BigInteger('user_id')->unsigned();
+            $table->BigInteger('image_id')->unsigned()->nullable();
             $table->timestamps();
             
             $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('image_id')->references('id')->on('images')
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }

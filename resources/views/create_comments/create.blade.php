@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create A New Post') }}
+            {{ __('Leave A Comment!') }}
         </h2>
     </x-slot>
     <style>
@@ -10,7 +10,7 @@
             top : 200px;
             left: 600px;
             width: 300px;
-            height:300px;
+            height: 150px;
             border:1px solid black;
             margin : 0px;
             text-align:center;
@@ -22,24 +22,14 @@
              margin : 0 auto;
         }
 
-        input[type="file"] {
-             position: absolute;
-             display: block;
-             margin : 0 auto;
-             left: 55px;
-             bottom: 120px;
-        }
-
         input[type="submit"] {
             position:  absolute;
             background-color: #ADD8E6;
             padding: 16px 32px;
             left: 90px;
-            bottom: 40px;
+            bottom: 15px;
         }
-        
-
-    </style>
+    </style>    
 
     <body>
         @if(session('message'))
@@ -61,16 +51,13 @@
 </body>
 
 
-    <form method="POST" action="{{route('view_posts.store')}}">
+    <form method="POST" action="{{route('create_comments.store')}}">
         @csrf
         <div class='wrap'>
-        <p>Post Title: <input type="text" name="title" class="block mt-1 w-half"
-            value="{{old('title')}}"></p>
-        <p>Post Body: <input type="text" name="content"
+        <p>Comment: <input type="text" name="content"
             value="{{old('content')}}"></p>
-        <input type="file" value="image">
         <input type="submit" value="Submit">
-            </div>
+        </div>
         </form>
 
 </x-app-layout>

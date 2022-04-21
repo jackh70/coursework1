@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Image;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +14,9 @@ class ImageTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $i = new Image();
+        $i->title = ("Test");
+        $i->path = ("/home");
+        $i->save();
     }
 }

@@ -19,7 +19,6 @@ class PostsTableSeeder extends Seeder
         $p->title = ('My First Post!');
         $p->content = ('Look at this food!');
         $p->user_id = 1;
-        $p->image_link = ('https://testlink.com');
         $p->save();
 
         Post::factory()->count(50)->create();

@@ -20,7 +20,6 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
             'content' => $this->faker->sentence($nbWords = 5, $variableNbWords = true),
             'user_id' => 'App\Models\User'::inRandomOrder()->first()->id,
-            'image_link' => $this->faker->url(),
 
         ];
     }
